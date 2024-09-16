@@ -11,7 +11,9 @@ function handleClose() {
 }
 
 return (
-	<Transition.Root>
+	<Transition.Root
+		show={open}
+		as={Fragment}>
 		<Dialog
 			as='div'
 			className='fixed z-[99999] inset-0 overflow-y-auto'
@@ -44,13 +46,13 @@ return (
 						<div className='px-4 py-4 items-center justify-center sm:px-6 sm:flex sm:flex-row-reverse'>
 							<Loading> Completing Transaction</Loading>
 						</div>
-            <p className='px-4 py-4 text-black items-center text-sm justify-center sm:px-6 sm:flex-row-reverse'>
-              Transaction would usually take 12 secs
-            </p>
+						<p className='px-4 py-4 text-black items-center text-sm justify-center sm:px-6 sm:flex-row-reverse'>
+							Transaction would usually take 12 secs
+						</p>
 					</div>
 				</Transition.Child>
 			</div>
 		</Dialog>
 	</Transition.Root>
-)
+);
 };
