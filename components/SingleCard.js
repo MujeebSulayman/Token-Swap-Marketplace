@@ -9,7 +9,7 @@ import TransactionStatus from './TransactionStatus';
 import toast, { Toaster } from 'react-hot-toast';
 import {
 	ClipboardIcon,
-	clickboardCheckIcon,
+	ClipboardCheckIcon,
 	PlusIcon,
 } from '@heroicons/react/outline';
 
@@ -46,8 +46,6 @@ const SingleCard = ({ index, name, walletAddress }) => {
 		<article className='flex flex-col bg-[#212429]'>
 			<a
 				href=''
-				noopener
-				noreferrer='true'
 				aria-label='Loren ipsum Loren ipsum Loren ipsum'>
 				<img
 					src={`img/${index + 1}.png`}
@@ -58,12 +56,10 @@ const SingleCard = ({ index, name, walletAddress }) => {
 			<div className='flex flex-col flex-1 p-6'>
 				<a
 					href=''
-					rel='noopener noreferrer'
 					aria-label='Te nulla oportere reprimique his doloeum'></a>
 
 				<a
 					href=''
-					rel='noopener noreferrer'
 					aria-label='Te nulla oportere reprimique his doloeum'
 					className='text-sm uppercase hover:underline text-[#7765F3]'>
 					{name} 10M supplly
@@ -71,6 +67,24 @@ const SingleCard = ({ index, name, walletAddress }) => {
 				<h3 className='flex-1 py-2 text-lg font-semibold'>
 					Get {name} token, limited supply available
 				</h3>
+				<div className='flex mx-2 pt-[10px]'>
+					<div className='flex items-center bg-zinc-900 text-zinc-300 w-full p-2 px-3 rounded-l-lg'>
+						<p className='text-sm'>{name}</p>
+						<p className='bg-zinc-800 p-0.5 px-5 ml-3 rounded-lg text-zinc-100'>
+							{balance}
+						</p>
+					</div>
+					<div className='flex items-center p-2 px-2 bg-[#7765F3] rounded-r-lg'>
+						<copyIcon.icon
+							onClick={() => {
+								navigator.clipboard.writeText(tokenAddress);
+								setCopyIcon({ icon: ClipboardCheckIcon });
+								setTimeout(() => setCopyIcon({ icon: ClipboardIcon }), 2000);
+							}}
+							className='h-6 cursor-pointer'
+						/>
+					</div>
+				</div>
 			</div>
 		</article>
 	);

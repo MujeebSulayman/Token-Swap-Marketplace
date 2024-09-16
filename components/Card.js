@@ -47,7 +47,7 @@ const Card = () => {
 					/>
 					<SingleCard
 						index={4}
-						name={'stEth'}
+						name={'stETH'}
 						walletAddress={address}
 					/>
 					<SingleCard

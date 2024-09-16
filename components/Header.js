@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { ConnectButton } from '@rainbow-me/rainbowkit';
 import { useAccount } from 'wagmi';
 import toast, { Toaster } from 'react-hot-toast';
-import { Menu, Logo, TokenBalance } from './index';
+import { Logo, TokenBalance } from './index';
 
 const Header = () => {
 	const [tokenBalComp, setTokenBalComp] = useState(null);
