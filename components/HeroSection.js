@@ -9,7 +9,7 @@ const HeroSection = () => {
 					className='animation HemToken'
 					data-animation='fadeInUp'
 					data-animation-delay='1.1s'>
-					Welcome to the Future of Web3 with HemDex
+					Welcome to the Future of Defi with HemDex
 				</h1>
 				<h5
 					className='animation presale-txt text-white ani'
