@@ -11,47 +11,19 @@ import {
 	DEFAULT_VALUE,
 	ETH,
 } from '../utils/saleToken';
-
 import { Dropdown } from '@nextui-org/react';
 
 const Selector = ({ id, defaultValue, setToken, ignoreValue }) => {
 	const menu = [
-		{
-			key: ETH,
-			name: ETH,
-		},
-		{
-			key: COIN_1,
-			name: COIN_1,
-		},
-		{
-			key: COIN_2,
-			name: COIN_2,
-		},
-		{
-			key: COIN_3,
-			name: COIN_3,
-		},
-		{
-			key: COIN_4,
-			name: COIN_4,
-		},
-		{
-			key: COIN_5,
-			name: COIN_5,
-		},
-		{
-			key: COIN_6,
-			name: COIN_6,
-		},
-		{
-			key: COIN_7,
-			name: COIN_7,
-		},
-		{
-			key: COIN_8,
-			name: COIN_8,
-		},
+		{ key: ETH, name: ETH },
+		{ key: COIN_1, name: COIN_1 },
+		{ key: COIN_2, name: COIN_2 },
+		{ key: COIN_3, name: COIN_3 },
+		{ key: COIN_4, name: COIN_4 },
+		{ key: COIN_5, name: COIN_5 },
+		{ key: COIN_6, name: COIN_6 },
+		{ key: COIN_7, name: COIN_7 },
+		{ key: COIN_8, name: COIN_8 },
 	];
 
 	const [selectedItem, setSelectedItem] = useState();
@@ -80,7 +52,7 @@ const Selector = ({ id, defaultValue, setToken, ignoreValue }) => {
 			</Dropdown.Button>
 
 			<Dropdown.Menu
-				aria-label='Dynamic Actions'
+				aria-label={`Select token for ${id}`}
 				items={menuItems}
 				onAction={(key) => {
 					setSelectedItem(key);
@@ -88,13 +60,10 @@ const Selector = ({ id, defaultValue, setToken, ignoreValue }) => {
 				}}>
 				{(item) => (
 					<Dropdown.Item
-						aria-label={id}
 						key={item.key}
+						aria-label={id}
 						color={item.key === 'delete' ? 'error' : 'default'}
-						onPress={() => {
-							setSelectedItem(item.key);
-							setToken(item.key);
-						}}>
+						>
 						{item.name}
 					</Dropdown.Item>
 				)}

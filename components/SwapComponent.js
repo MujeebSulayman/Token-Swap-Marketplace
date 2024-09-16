@@ -52,7 +52,7 @@ const SwapComponent = () => {
 	const [txPending, setTxPending] = useState(false);
 
 	const notifyError = (msg) => toast.error(msg, { duration: 6000 });
-	const notifySuccess = (sg) =>
+	const notifySuccess = () =>
 		toast.success('Transaction Completed', { duration: 6000 });
 
 	const { address } = useAccount();
@@ -87,7 +87,7 @@ const SwapComponent = () => {
 			document.activeElement.ariaLabel !== 'destToken' &&
 			!isReversed.current
 		)
-			populateInputValue(inputValue);
+			populateInputValue(outputValue);
 		setDestTokenComp(
 			<SwapField
 				obj={destTokenObj}
@@ -100,7 +100,7 @@ const SwapComponent = () => {
 		if (isReversed.current) isReversed.current = false;
 	}, [outputValue, srcToken]);
 
-	const handleSwap = async () => {
+	async function handleSwap() {
 		if (srcToken === ETH && destToken !== ETH) {
 			performSwap(); // fixed the curly braces issue
 		} else {
@@ -111,15 +111,15 @@ const SwapComponent = () => {
 			if (result) performSwap();
 			else handleInsufficientAllowance();
 		}
-	};
+	}
 
-	const handleIncreaseAllowance = async () => {
+	async function handleIncreaseAllowance() {
 		setTxPending(true);
 		await increaseAllowance(srcToken, inputValue);
 		setTxPending(false);
 
 		setSwapBtnText(SWAP);
-	};
+	}
 
 	function handleReverseExchange(e) {
 		isReversed.current = true;
@@ -180,43 +180,43 @@ const SwapComponent = () => {
 				setInputValue(outputValue);
 			} else if (srcToken === ETH && destToken !== ETH) {
 				// Swap ETH to Token
-				const inValue = toEth(toWei(outputValue), 14);
-				setInputValue(inValue);
+				const outValue = toEth(toWei(outputValue), 14);
+				setInputValue(outValue);
 			} else if (srcToken !== ETH && destToken === ETH) {
 				// Swap Token to ETH
-				const inValue = toEth(toWei(outputValue), 14);
-				setInputValue(inValue);
+				const outValue = toEth(toWei(outputValue), 14);
+				setInputValue(outValue);
 			}
 		} catch (error) {
 			setInputValue('0');
 		}
 	}
 
-	const performSwap = async () => {
+	async function performSwap() {
 		setTxPending(true);
 		let result;
 		if (srcToken === ETH && destToken !== ETH) {
 			result = await swapEthToToken(destToken, inputValue);
 		} else if (srcToken !== ETH && destToken === ETH) {
 			result = await swapTokenToEth(srcToken, inputValue);
-		} else if (srcToken !== ETH && destToken !== ETH) {
+		} else {
 			result = await swapTokenToToken(srcToken, destToken, inputValue);
 		}
 
 		setTxPending(false);
-		if (result) notifySuccess();
-		else notifyError('Transaction Failed');
-	};
+
+		if (result && !result.hasOwnProperty('transactionHash'))
+			notifyError(result);
+		else notifySuccess();
+	}
 
 	const handleInsufficientAllowance = () => {
 		notifyError('Insufficent allowance, Kindly increase your allowance');
 		setSwapBtnText(INCREASE_ALLOWANCE);
 	};
 
-	useEffect(() => {
-		if (inputValue) populateOutputValue();
-		if (outputValue) populateInputValue();
-	}, [inputValue, outputValue]);
+
+
 
 	return (
 		<div className='border-[1px] rounded-l border-[#7765F3] bg-[#7765F3] w-[100%] p-4 px-6 rounded-xl'>

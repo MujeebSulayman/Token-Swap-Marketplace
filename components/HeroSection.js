@@ -23,12 +23,14 @@ const HeroSection = () => {
 					data-animation-delay='1.3s'>
 					<a
 						href='#whitepaper'
-						className='btn-custom-blue1'>
+						className='btn-custom-blue1'
+						aria-label='Get Started with HemDex'>
 						Get Started
 					</a>
 					<a
 						href='#token'
-						className='btn-custom-blue2'>
+						className='btn-custom-blue2'
+						aria-label='Swap HemDex Token'>
 						Swap Token
 					</a>
 				</div>
