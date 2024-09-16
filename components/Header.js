@@ -43,7 +43,7 @@ const Header = () => {
 	}, [address]);
 
 	return (
-		<header className='sm:pt-6 pt-0 sticky top-0 z-50 text-gray-100 bg-black/60 backdrop-blur-md backdrop-filter'>
+		<header className='sm:pt-6 sm:pb-4 pb-0 pt-0 sticky top-0 z-50 text-gray-100 bg-black/60 backdrop-blur-md backdrop-filter'>
 			<div className='container flex justify-between items-center h-16'>
 				{/* Logo */}
 				<div className='flex items-center'>
