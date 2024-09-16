@@ -30,6 +30,10 @@ const Header = () => {
 						walletAddress={address}
 					/>
 					<TokenBalance
+						name={'Matic Token'}
+						walletAddress={address}
+					/>
+					<TokenBalance
 						name={'TRON'}
 						walletAddress={address}
 					/>
