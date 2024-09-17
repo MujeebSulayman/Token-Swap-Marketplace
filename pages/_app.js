@@ -48,13 +48,6 @@ const wagmiClient = createClient({
 	provider,
 });
 
-// Customize theme (optional)
-// const myTheme = merge(darkTheme(), {
-// 	colors: {
-// 		accentColor: '#18181b',
-// 		accentColorForeground: '#ffffff',
-// 	},
-// });
 
 // Main App Component
 function MyApp({ Component, pageProps }) {
@@ -64,7 +57,7 @@ function MyApp({ Component, pageProps }) {
 				chains={chains}
 				theme={darkTheme({
 					...darkTheme.accentColors.purple,
-					borderRadius: 'small',
+					borderRadius: 'medium',
 					fontStack: 'system',
 					overlayBlur: 'small',
 				})}>
