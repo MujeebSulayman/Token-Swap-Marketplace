@@ -15,7 +15,7 @@ const HeroSection = () => {
 					className='animation presale-txt text-white ani'
 					data-animation='fadeInUp'
 					data-animation-delay='1.1s'>
-					Sale is live
+					Token Swap is live
 				</h5>
 				<div
 					className='btn_group pt-2 pb-3 animation butgrp'
