@@ -9,13 +9,13 @@ const HeroSection = () => {
 					className='animation HemToken'
 					data-animation='fadeInUp'
 					data-animation-delay='1.1s'>
-					Welcome to the Future of Defi with HemDex
+					Limitless Web3.0 Crypto Exchange
 				</h1>
 				<h5
 					className='animation presale-txt text-white ani'
 					data-animation='fadeInUp'
 					data-animation-delay='1.1s'>
-					Token Swap is live
+					Buy, Sell, and Swap Crypto: Simple, Fast, Free of Custody
 				</h5>
 				<div
 					className='btn_group pt-2 pb-3 animation butgrp'
