@@ -14,7 +14,6 @@ const tokens = () => {
 		loadData();
 	}, []);
 
-	console.log(history);
 	return (
 		<>
 			<Header />
