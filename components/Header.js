@@ -86,13 +86,13 @@ const Header = () => {
 					</li>
 				</ul>
 
-				{/* Connect Button & Token Balance (Desktop Only) */}
+				
 				<div className='hidden lg:flex items-center space-x-4'>
 					{tokenBalComp}
 					<ConnectButton />
 				</div>
 
-				{/* Hamburger Menu for Mobile */}
+				
 				<button
 					onClick={toggleMobileMenu}
 					className='lg:hidden focus:outline-none mr-10'>
