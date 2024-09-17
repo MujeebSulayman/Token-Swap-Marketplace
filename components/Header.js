@@ -26,10 +26,6 @@ const Header = () => {
 			setTokenBalComp(
 				<>
 					<TokenBalance
-						name={'BNB'}
-						walletAddress={address}
-					/>
-					<TokenBalance
 						name={'Matic Token'}
 						walletAddress={address}
 					/>
