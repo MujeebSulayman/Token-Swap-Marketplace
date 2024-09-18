@@ -10,7 +10,6 @@ import { TransactionStatus } from './index';
 import {
 	getTokenAddress,
 	getTokenBalance,
-	increaseAllowance,
 } from '../utils/context';
 
 const TokenBalance = ({ name, walletAddress }) => {
